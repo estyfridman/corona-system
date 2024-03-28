@@ -105,10 +105,6 @@ export default function FullMember() {
                 <h2 className="text-base font-semibold leading-7 text-slate-900">
                   Member Info
                 </h2>
-                <p className="mt-1 text-sm leading-6 text-slate-600">
-                  This information will be displayed publicly so be careful what you
-                  share.
-                </p>
               </div>
           <form
             onSubmit={onSubmit}
@@ -126,13 +122,18 @@ export default function FullMember() {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
-                        type="text"
+                        type="text" minLength={2} 
                         name="first_name"
                         id="first_name"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="First Name"
                         value={form.first_name}
                         onChange={(e) => updateForm({ first_name: e.target.value })}
+                        onBlur={(e) => {
+                            if (!e.target.value.trim()) {
+                              alert("First Name cannot be empty!");
+                            }
+                          }}
                       />
                     </div>
                   </div>
@@ -148,13 +149,18 @@ export default function FullMember() {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
-                        type="text"
+                        type="text" minLength={2} 
                         name="last_name"
                         id="last_name"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="Last Name"
                         value={form.last_name}
                         onChange={(e) => updateForm({ last_name: e.target.value })}
+                        onBlur={(e) => {
+                            if (!e.target.value.trim()) {
+                              alert("First Name cannot be empty!");
+                            }
+                          }}
                       />
                     </div>
                   </div>
@@ -172,14 +178,22 @@ export default function FullMember() {
                       {isNew && 
                       (<div>
                         <input
-                        type="text"
+                        type="text" maxLength={9} minLength={8} 
                         name="id_number"
                         id="id_number"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="Id"
                         value={form.id_number}
-                        onChange={(e) => updateForm({ id_number: e.target.value })}
-                      /></div>)}
+                        onChange={(e) => {
+                            // Restrict input to digits only
+                            const regex = /^[0-9]*$/;
+                            if (regex.test(e.target.value) || e.target.value === "") {
+                              updateForm({ id_number: e.target.value });
+                            }else{
+                                alert("digits only!");}
+                          }}
+                        />
+                        </div>)}
                       
                       {!isNew && form.id_number} 
                     </div>
@@ -196,23 +210,15 @@ export default function FullMember() {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
-                        type="email" 
-                        //{...register("email", {
-                        //   required: "Required",
-                        //   pattern: {
-                        //     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        //     message: "invalid email address"
-                        //   }
-                        // })}
+                        type="email" required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         name="email"
                         id="email"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
                         placeholder="Email@example"
                         value={form.email}
                         onChange={(e) => updateForm({ email: e.target.value })}
-                      />  
-                    {/* {errors.email && <p className="error-message">{errors.email.message}</p>} */}
-                      
+                      />                        
                     </div>
                   </div>
                 </div>
@@ -308,7 +314,8 @@ export default function FullMember() {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
-                        type="phone"
+                        type="tel"
+                        pattern="[0-9]{10}"
                         name="phone_number"
                         id="phone_number"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
@@ -329,7 +336,8 @@ export default function FullMember() {
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <input
-                        type="phone"
+                        type="tel"
+                        pattern="[0-9]{10}"
                         name="mobile_number"
                         id="mobile_number"
                         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"

@@ -23,7 +23,7 @@ app.use("/api/seed", seedRouter);
 app.use("/api/corona", coronaDetailRouter);
 
 
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGO_URL || "mongodb://ehshpiner:kdExc6PGtpz4xYts@ac-vlnvcjo-shard-00-00.3hwmtbz.mongodb.net:27017,ac-vlnvcjo-shard-00-01.3hwmtbz.mongodb.net:27017,ac-vlnvcjo-shard-00-02.3hwmtbz.mongodb.net:27017/?replicaSet=atlas-13bqn0-shard-0&tls=true&authSource=admin")
 .then(() => {
   app.listen(PORT, () => {
     console.log(`Server started on port: ${PORT}`);
