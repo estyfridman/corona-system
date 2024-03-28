@@ -1,12 +1,7 @@
-
-
-
-##requirements
+## requirements
 
 * .NET Framework 4.7.2
 * Visual Studio 2019
-
-
 
 ## Usage
 
@@ -43,8 +38,15 @@ System.Windows.Forms: Allows for the creation of graphical user interfaces.
  
 ## Build and Run the Program:
 
+to build the program:
 ```csharp
-dotnet build to build the program.
-dotnet run to run the program.
+dotnet build 
 ```
+
+to run the program:
+
+```csharp
+dotnet run 
+```
+
  
