@@ -4,22 +4,22 @@
  
  - In the top bar, you can choose whether you want to manage the existing database or choose to create a new one and add a POS member.
 
-![navbar](https://github.com/estyfridman/corona-system/FullStack/RMDImages/1.png)
+![navbar](RMDImages/1.png)
 
  - On this page you can update information about a new person, if you arrived via the "Create new" button
 Or update details about a person who already exists in the system, if you arrived through an existing user.
 
-![update](https://github.com/estyfridman/corona-system/FullStack/RMDImages/2.png)
+![update](RMDImages/2.png)
 
  - On this page you can view the existing members. 
  
-![all member](https://github.com/estyfridman/corona-system/FullStack/RMDImages/3.png)
+![all member](RMDImages/3.png)
 
 The buttons on the right will allow you to:
-1) Clear
-2) Edit information items
-3) Add vaccination, date of positive finding for corona and date of recovery (negative finding)
-4) View detailed information
+1) Clear.
+2) Edit information items.
+3) Add vaccination, date of positive finding for corona and date of recovery (negative finding).
+4) View detailed information.
  
 ## Dependencies
 This project utilizes a variety of dependencies for both client-side and server-side functionality.
