@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Customer from "./components/Customer.tsx";
+import FullMember from "./components/FullMember.tsx";
 import Home from "./pages/Home.tsx";
 import Navbar from "./components/Navbar";
 import MemberListPage from "./pages/MemberListPage.tsx";
@@ -17,9 +17,9 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/customer" element={<Customer />} />
-          <Route path="/customer/:id" element={<Customer />} />
-          <Route path="/allcustomers" element={<MemberListPage />} />
+          <Route path="/member" element={<FullMember />} />
+          <Route path="/member/:id" element={<FullMember />} />
+          <Route path="/allmembers" element={<MemberListPage />} />
           <Route path="/corona/:id" element={<UpdateDatePage />} />
           <Route path="/intro/:id" element={<Introducing />} />
         </Routes>

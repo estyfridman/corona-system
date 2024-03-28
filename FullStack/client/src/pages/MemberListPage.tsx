@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import MinCustomer from "./../components/MinCustomer.tsx";
+import MinMember from "./../components/MinMember.tsx";
 
-interface Customer {
+interface IMember {
   first_name: string;
   last_name: string;
   id_number: number;
@@ -9,7 +9,7 @@ interface Customer {
 }
 
 export default function MemberListPage() {
-  const [members, setMembers] = useState<Customer[]>();
+  const [members, setMembers] = useState<IMember[]>();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function fetchData() {
@@ -53,7 +53,7 @@ export default function MemberListPage() {
       ) : (
         members ? (
             members.map((member) => (
-                <MinCustomer
+                <MinMember
                   key={member.email}
                   first_name={member.first_name}
                   last_name={member.last_name}
