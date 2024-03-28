@@ -1,12 +1,7 @@
-
-
-
-##requirements
+## requirements
 
 * .NET Framework 4.7.2
 * Visual Studio 2019
-
-
 
 ## Usage
 
