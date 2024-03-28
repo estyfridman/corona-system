@@ -6,7 +6,7 @@
  
  - In the top bar, you can choose whether you want to manage the existing database or choose to create a new one and add a POS member.
 
-![1](./RMDImages/1.png)
+![navbar](https://github.com/estyfridman/corona-system/FullStack/RMDImages/1.png)
 
  - On this page you can update information about a new person, if you arrived via the "Create new" button
 Or update details about a person who already exists in the system, if you arrived through an existing user.
