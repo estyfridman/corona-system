@@ -11,7 +11,7 @@ coronaDetailRouter.post(
     try {
         const newCoronaDetailData = {
             id_number: req.body.id_number,
-            vaccinations: req.body.vaccinations || [],
+            vaccinations: req.body.vaccinations || [], //
             positive_corona: req.body.positive_corona || null,
             date_of_recovery: req.body.date_of_recovery || null
         };
