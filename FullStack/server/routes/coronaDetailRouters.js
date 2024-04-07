@@ -42,6 +42,7 @@ coronaDetailRouter.put(
         };
         const cdToUpdate = await CoronaDetail.findOne({ id_number: idNumber });
         if(cdToUpdate){
+          //check the vaccination.length <= 4
           cdToUpdate.vaccinations.push(newVaccination);
           await cdToUpdate.save();
           res.status(201).send({ message: 'Updated'});
@@ -51,9 +52,8 @@ coronaDetailRouter.put(
             vaccinations: [newVaccination]
           };
           await CoronaDetail.insertOne(newDocument);
+          res.status(201).send("The date of receipt of the vaccine was successfully registered");
         }
- 
-      res.status(201).send("");
 
     }catch (err) {
       res.status(500).send(err);
@@ -71,8 +71,15 @@ coronaDetailRouter.put(
           const cdToUpdate = await CoronaDetail.findOne({ id_number: id });
 
           if(cdToUpdate){
-            if (positive_corona) cdToUpdate.positive_corona = positive_corona;
-            if (date_of_recovery) cdToUpdate.date_of_recovery = date_of_recovery;
+            if (positive_corona){
+                //check is not existing
+              cdToUpdate.positive_corona = positive_corona;
+            }
+            if (date_of_recovery){
+                //check is not existing
+
+              cdToUpdate.date_of_recovery = date_of_recovery;
+            }
   
             await cdToUpdate.save();
           }else{
@@ -80,8 +87,7 @@ coronaDetailRouter.put(
               id_number: id,
               positive_corona: req.body.positive_corona
             });
-          await newCoronaDetail.save();
-          
+            await newCoronaDetail.save();
           }
 
           res.status(200).send({message: "Success"});
@@ -91,6 +97,8 @@ coronaDetailRouter.put(
     })
   );
   
+
+  //delete 1 vc? or 1 date
   coronaDetailRouter.delete(
     "/:id",
     expressAsyncHandler(async (req, res) => {
@@ -101,12 +109,10 @@ coronaDetailRouter.put(
         if (!coronaDetailToDelete) {
             return res.status(404).send({ message: "Corona Details not found" });
           }
-          await coronaDetailToDelete.deleteOne();
-    
-          res.status(200).send({ message: "Corona details deleted successfully" });
 
+        await coronaDetailToDelete.deleteOne();
+        res.status(200).send({ message: "Corona details deleted successfully" });
     } catch (err) {
-        console.error(err.message);
         res.status(500).send({ message: "Error deleting corona details" });
       }
     })
@@ -143,12 +149,10 @@ coronaDetailRouter.put(
         }   
 
         res.status(200).send(coronaDetail);
-
     } catch (err) {
         res.status(500).send({ message: "Error retrieving corona details" });
       }
     })
   );
 
-  
 export default coronaDetailRouter;

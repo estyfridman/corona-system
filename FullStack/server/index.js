@@ -6,6 +6,7 @@ import seedRouter from "./routes/seedRouters.js";
 import memberRouter from "./routes/membersRouters.js";
 import coronaDetailRouter from "./routes/coronaDetailRouters.js";
 
+dotenv.config();
 const PORT = process.env.PORT || 5050;
 
 const app = express();
