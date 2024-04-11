@@ -8,6 +8,12 @@ memberRouter.post(
   "/new",
   expressAsyncHandler(async (req, res) => {
     try {
+        //check if existing member
+        const existMember = await Member.findOne({ id_number: req.body.id_number });
+        if (existMember) {
+          return res.status(409).send({ message: "There is already a POS member in the system with the entered ID number" });
+        }
+
         const newMember = new Member ({
             first_name: req.body.first_name,
             last_name: req.body.last_name,
