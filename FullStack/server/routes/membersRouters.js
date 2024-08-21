@@ -65,7 +65,7 @@ memberRouter.get(
 
       // Check if member exists
       if (!members) {
-        return res.status(404).send({ message: "Member not found" });
+        return res.status(404).send({ message: "No Members were found to display" });
       }
 
       // Return the member
