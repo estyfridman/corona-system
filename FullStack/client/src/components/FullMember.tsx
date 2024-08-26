@@ -99,7 +99,7 @@ export default function FullMember() {
       // This following section will display the form that takes the input from the user.
       return (
         <>
-          <h3 className="text-lg font-semibold p-4">Create/Update Employee Record</h3>              
+          <h3 className="text-lg font-semibold p-4">{`${isNew ? 'Create' : 'Update'} Employee Record`}</h3>              
           <div className="p-4">
                 <h2 className="text-base font-semibold leading-7 text-slate-900">
                   Member Info

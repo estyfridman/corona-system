@@ -91,6 +91,7 @@ export default function Member() {
       return (
         <>
           <h3 className="text-lg font-semibold p-4">{`${ isNew ? 'Create' : 'Update'} Employee Record`}</h3>
+          <div>{isNew}</div>
           <form
             onSubmit={onSubmit}
             className="border rounded-lg overflow-hidden p-4"
